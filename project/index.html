@@ -7,177 +7,200 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class = "container">
+    <main>
+        <div class = "container">
 
-        <div id = "titleBox" class = "border">
-            <h1 class = "center">HANGMAN</h1>
-        </div>
-
-        <div id = "alphabetBox" class = "border">
-
-            <div class = "row border" onclick = "letterClick()">
-                <div class = "alphabet">
-                    <h3 class = "center">A</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">B</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">C</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">D</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">E</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">F</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">G</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">H</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">I</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">J</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">K</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">L</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">M</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">N</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">O</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">P</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">Q</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">R</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">S</h3>
-                </div>
-    
-               <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">T</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">U</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">V</h3>
-                </div>
+            <div id = "title_box" class = "border">
+                <h1 class = "center">HANGMAN</h1>
             </div>
 
-            <div class = "row border">
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">W</h3>
+            <div class = "button_box border">
+                
+                <div class = "center">
+                <button id = "hint" class = "button">Show hint</button>
                 </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">X</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">Y</h3>
-                </div>
-    
-                <div class = "alphabet" onclick = "letterClick()">
-                    <h3 class = "center">Z</h3>
-                </div>
+
             </div>
 
-        </div>
+            <div id = "attempts_box" class = "border">
 
-        <div class = "buttonBox border">
+                <div class = "attempts">
+                    <h2 class = "center">Attempts left</h2>
+                </div>
+                
+            </div>
+
+            <div class = "share_box border">
+
+                <div id = "hangman">
+
+                    <div id = "line_vertical"></div>
+
+                    <div id = "line_horisontal"></div>
+
+                    <div id = "line_rope"></div>
+
+                    <div id = "hang_head"></div>
+
+                    <div id = "hang_upper"></div>
+
+                    <div id = "hang_left_arm"></div>
+
+                    <div id = "hang_right_arm"></div>
+
+                    <div id = "hang_left_leg"></div>
+
+                    <div id = "hang_right_leg"></div>
+
+                </div>
+                
+            </div>
+
+            <div class = "share_box border">
+
+                <div class = "row" onclick = "letterClick()">
+                    <div class = "alphabet">
+                        <h1 class = "center">A</h1>
+                    </div>
             
-            <div class = "center">
-               <button id = "hint" class = "button">Show hint</button>
-            </div>
-
-        </div>
-
-        <div id = "attemptsBox" class = "border">
-
-            <div class = "attempts">
-                <h2 class = "center">Attempts left</h2>
-            </div>
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">B</h1>
+                    </div>
             
-        </div>
-
-        <div id = "hangmanBox" class = "border">
-
-            <div id = "hangman">
-
-            </div>
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">C</h1>
+                    </div>
             
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">D</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">E</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">F</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">G</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">H</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">I</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">J</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">K</h1>
+                    </div>
+            
+                </div>
+
+                <div class = "row">
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">L</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">M</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">N</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">O</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">P</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">Q</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">R</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">S</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">T</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">U</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">V</h1>
+                    </div>
+                </div>
+            
+                <div class = "row">
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">W</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">X</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">Y</h1>
+                    </div>
+            
+                    <div class = "alphabet" onclick = "letterClick()">
+                        <h1 class = "center">Z</h1>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div id = "answer_box" class = "border">
+
+                <div class = "answer">
+
+                </div>
+
+                <div class = "answer">
+
+                </div>
+
+                <div class = "answer">
+
+                </div>
+
+                <div class = "answer">
+
+                </div>
+
+            </div>
+
+            <div class = "button_box border">
+
+                <div class = "center">
+                    <button id = "reset" class = "button">Reset Game</button>
+                </div>
+
+            </div>
+
+
         </div>
-
-        <div id = "answerBox" class = "border">
-
-            <div class = "answer">
-
-            </div>
-
-            <div class = "answer">
-
-            </div>
-
-            <div class = "answer">
-
-            </div>
-
-            <div class = "answer">
-
-            </div>
-
-        </div>
-
-        <div class = "buttonBox border">
-
-            <div class = "center">
-                <button id = "reset" class = "button">Reset Game</button>
-            </div>
-
-        </div>
-
-
-    </div>
+    </main>
 </body>
 </html>
