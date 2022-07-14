@@ -4,8 +4,8 @@ List of classes and id´s that probably won´t be used:
 */
 
 body{
-    background-color: white;
-    background-color: mediumturquoise;
+    background-color: #ffffff;
+    background-color: #13F6E9;
 }
 
 #title_box{
@@ -55,7 +55,7 @@ body{
 #line_vertical{
     width: 10px;
     height: 280px;
-    background-color: red;
+    background-color: #000000;
     margin-left:200px;
     margin-top:20px;
     float:left;
@@ -64,18 +64,73 @@ body{
 #line_horisontal{
     width: 260px;
     height: 10px;
-    background-color: black;
+    background-color: #000000;
     margin-top:20px;
     float:left;
 }
 
 #line_rope{
     width: 10px;
-    height: 50px;
-    background-color: red;
+    height: 51px;
+    background-color: #000000;
     position: absolute;
     left: 480px;
     top: 239px;
+}
+
+#hang_head{
+    height: 50px;
+    width: 50px;
+    background-color: #000000;
+    border-radius: 50%;
+    position:absolute;
+    left: 460px;
+    top: 290px;   
+}
+
+#hang_upper{
+    width: 50px;
+    height: 120px;
+    background-color: #000000;
+    position:absolute;
+    left: 462px;
+    top: 340px;
+}
+
+#hang_left_arm{
+    width: 60px;
+    height: 20px;
+    background-color: #000000;
+    position:absolute;
+    left: 420px;
+    top: 340px;
+}
+
+#hang_right_arm{
+    width: 60px;
+    height: 20px;
+    background-color: #000000;
+    position:absolute;
+    left: 496px;
+    top: 340px;
+}
+
+#hang_left_leg{
+    width: 20px;
+    height: 50px;
+    background-color: #000000;
+    position:absolute;
+    left: 462px;
+    top: 460px;
+}
+
+#hang_right_leg{
+    width: 20px;
+    height: 50px;
+    background-color: #000000;
+    position:absolute;
+    left: 492px;
+    top: 460px;
 }
 
 .share_box{
@@ -89,7 +144,7 @@ body{
     height: 700px;
     margin: auto;
     float:left;
-    background-color: mediumturquoise;
+    background-color: #13F6E9;
 }
 
 .alphabet{
@@ -108,7 +163,7 @@ body{
     float:left;
     margin-left: 10px;
     margin-top: 10px;
-    border-color: black;
+    border-color: #000000;
     border-bottom: 5px;
     border-style: solid;
 }
@@ -121,13 +176,13 @@ body{
 
 .center{
     text-align: center;
-    color: black;
+    color: #000000;
 }
 
 .border{
     border-radius: 2px;
     border-style: solid;
-    border-color: black;
+    border-color: #000000;
 }
 
 .button_box{
