@@ -45,82 +45,73 @@ body{
     margin-top:10px;
 }
 
-#line_vertical{
+#hang_1{
     width: 10px;
     height: 280px;
-    background-color: #000000;
     margin-left:200px;
     margin-top:20px;
     float:left;
 }
 
-#line_horisontal{
+#hang_2{
     width: 260px;
     height: 10px;
-    background-color: #000000;
     margin-top:20px;
     float:left;
 }
 
-#line_rope{
+#hang_3{
     width: 10px;
     height: 51px;
-    background-color: #000000;
     position: absolute;
     left: 480px;
     top: 239px;
 }
 
-#hang_head{
+#hang_4{
     height: 50px;
     width: 50px;
-    background-color: #000000;
     border-radius: 50%;
     position:absolute;
     left: 460px;
     top: 290px;   
 }
 
-#hang_upper{
+#hang_5{
     width: 50px;
     height: 120px;
-    background-color: #000000;
     position:absolute;
     left: 462px;
     top: 340px;
 }
 
-#hang_left_arm{
+#hang_6{
     width: 60px;
     height: 20px;
-    background-color: #000000;
     position:absolute;
     left: 420px;
     top: 340px;
 }
 
-#hang_right_arm{
+#hang_7{
     width: 60px;
     height: 20px;
-    background-color: #000000;
     position:absolute;
     left: 496px;
     top: 340px;
 }
 
-#hang_left_leg{
+#hang_8{
     width: 20px;
     height: 50px;
-    background-color: #000000;
     position:absolute;
     left: 462px;
     top: 460px;
 }
 
-#hang_right_leg{
+#hang_9{
     width: 20px;
     height: 50px;
-    background-color: #000000;
     position:absolute;
     left: 492px;
     top: 460px;
@@ -169,6 +160,10 @@ body{
 .center{
     text-align: center;
     color: #000000;
+}
+
+.black{
+    background-color: #000000;
 }
 
 .border{
