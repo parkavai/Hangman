@@ -95,13 +95,15 @@ const createButtons = () =>{
     letter = e.target.id.toUpperCase(); 
     e.target.disabled = true;
     isFound = false;
+    let amount = 0;
     for(var i = 0; i < chosenWord.length; i++){
         if(letter == chosenWord[i]){
             displayLetter(i, letter);
             isFound = true;
+            amount += 1;
         }
     }
-    updateScore(isFound);
+    updateScore(isFound, amount);
 };
 
 
@@ -119,6 +121,7 @@ const updateAttempts = () =>{
  */
  const checkIfWon = () =>{
     if(guessedCorrect == chosenWord.length){
+        console.log(guessedCorrect);
         gameOver("won");
     }
     else if(guessedWrong == 9 || attempts == 0){
@@ -134,9 +137,11 @@ const displayHangman = () =>{
  * If the letter was indeed found within the word, then the user has guessed correct. Otherwise
  * the user has guessed wrong. At the end, we must ensure wether the user have won or not. 
  */
-const updateScore = (letterWasFound) =>{
+const updateScore = (letterWasFound, amount) =>{
     if(letterWasFound == true){
-        guessedCorrect += 1;
+        guessedCorrect += amount;
+        console.log("Right" + guessedCorrect);
+        console.log("Wrong" + guessedWrong);
     }
     else{
         guessedWrong += 1;
@@ -154,9 +159,8 @@ const updateScore = (letterWasFound) =>{
     for (var i = 0; i < buttons.length; i++){
         buttons[i].disabled = true;
     }
-    if(status == "win"){
+    if(status == "won"){
         statusText.innerHTML = "You win!!";
-        console.log(status);
     }
     else{
         statusText.innerHTML = `You lose, the word was "${chosenWord}"`;
