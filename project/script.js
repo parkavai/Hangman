@@ -31,14 +31,12 @@ const getRandomCategory = () =>{
  * Returns the chosen word from the given category
  */
 const getRandomWord = (category) =>{
-
     let categories = new Map([
         ["Programming languages", ["PYTHON", "JAVA", "C", "CSS", "HTML"]],
         ["Colours", ["RED", "BLUE", "YELLOW", "GREEN", "VIOLET", "TURQUOISE"]],
         ["Dishes", ["PIZZA", "SPAGHETTI", "HAMBURGER", "SAUSAGES"]],
         ["Football teams", ["CHELSEA", "LIVERPOOL", "BARCELONA", "TOTTENHAM", "EVERTON"]]
     ]);
-
     let words = categories.get(category);
     return words[Math.floor(Math.random() * words.length)];
 }
@@ -47,11 +45,18 @@ const chosenCategory = getRandomCategory();
 const chosenWord = getRandomWord(chosenCategory);
 
 /**
- * Resets the window when clicked on
+ * When the window is shown to the user, we want a random word to be chosen in order to 
+ * setup the game. Also set the amount of underscores to display to the user, which is based 
+ * on the length of the word. 
  */
- const resetGame = () =>{ 
-    window.location.reload();
-}
+const game = () =>{
+    resetButton.style.display = "none";
+    createButtons();
+    addUnderscores(chosenWord);
+    resetButton.addEventListener('click', resetGame);
+    clueButton.addEventListener('click', showHint);
+    buttons.forEach(button => button.addEventListener('click', guessWord));
+};
 
 /**
  * Creates the buttons with letters from the alphabet which is used for the game.
@@ -70,17 +75,16 @@ const chosenWord = getRandomWord(chosenCategory);
 };
 
 /**
- * When the window is shown to the user, we want a random word to be chosen in order to 
- * setup the game. Also set the amount of underscores to display to the user, which is based 
- * on the length of the word. 
+ * This function sets up the amount of underscores required to represent
+ * the amount of letters of the chosen word.
  */
-const game = () =>{
-    resetButton.style.display = "none";
-    createButtons();
-    addUnderscores(chosenWord);
-    buttons.forEach(button => button.addEventListener('click', guessWord));
-    resetButton.addEventListener('click', resetGame);
-    clueButton.addEventListener('click', showHint);
+ const addUnderscores = (word) =>{
+    for (var i = 0; i < word.length; i++){
+        guess = document.createElement("div");
+        guess.classList.add("guess");
+        array[i] = guess;
+        guessBox.appendChild(guess);
+    }
 };
 
 /**
@@ -93,7 +97,7 @@ const showHint = () =>{
 
 /**
  * Letters which are used, will be displayed along with a "red" or "green" color 
- * based if the letter is within the word or not. 
+ * depending on the letter is within the word or not. 
  */
 const usedLetters = (letter, color) =>{
     used = document.createElement("h1");
@@ -101,30 +105,6 @@ const usedLetters = (letter, color) =>{
     used.style.color = color;
     used.classList.add("used");
     usedBox.appendChild(used);
-};
-
-/**
- * If the user clicked on a letter which was in the word, then the letter will be displayed for 
- * the user. 
- */
- const displayLetter = (index, letter) =>{
-    var text = document.createElement("h1");
-    text.classList.add("center");
-    text.textContent = letter;
-    array[index].appendChild(text);
-};
-
-/**
- * This function sets up the amount of underscores required to represent
- * the amount of letters of the chosen word.
- */
- const addUnderscores = (word) =>{
-    for (var i = 0; i < word.length; i++){
-        guess = document.createElement("div");
-        guess.classList.add("guess");
-        array[i] = guess;
-        guessBox.appendChild(guess);
-    }
 };
 
 /**
@@ -147,9 +127,41 @@ const usedLetters = (letter, color) =>{
 
 
 /**
+ * If the user clicked on a letter which was in the word, then the letter will be displayed for 
+ * the user. 
+ */
+ const displayLetter = (index, letter) =>{
+    var text = document.createElement("h1");
+    text.classList.add("center");
+    text.textContent = letter;
+    array[index].appendChild(text);
+};
+
+
+/**
+ * If the letter was indeed found within the word, then the user has guessed correct. Otherwise
+ * the user has guessed wrong which will display a part of the hangman. At the end, we must 
+ * ensure wether the user have won or not and disable the button which was clicked. 
+ */
+ const updateScore = (letterWasFound, amount, e, letter) =>{
+    if(letterWasFound == true){
+        guessedCorrect += amount;
+        usedLetters(letter, "green");
+    }
+    else{
+        guessedWrong += 1;
+        document.getElementById(`hang_${guessedWrong}`).classList.add("black");
+        updateAttempts();
+        usedLetters(letter, "red");
+    }
+    e.target.disabled = true;
+    checkIfWon();
+};
+
+/**
  * Updates the number of attempts available.
  */
-const updateAttempts = () =>{
+ const updateAttempts = () =>{
     attempts -= 1;
     attemptsText.innerHTML = `Attempts left: ${attempts} `;
 };
@@ -169,25 +181,6 @@ const updateAttempts = () =>{
 };
 
 /**
- * If the letter was indeed found within the word, then the user has guessed correct. Otherwise
- * the user has guessed wrong. At the end, we must ensure wether the user have won or not. 
- */
-const updateScore = (letterWasFound, amount, e, letter) =>{
-    if(letterWasFound == true){
-        guessedCorrect += amount;
-        usedLetters(letter, "green");
-    }
-    else{
-        guessedWrong += 1;
-        document.getElementById(`hang_${guessedWrong}`).classList.add("black");
-        updateAttempts();
-        usedLetters(letter, "red");
-    }
-    e.target.disabled = true;
-    checkIfWon();
-}
-
-/**
  * This function is responsible for ending the game in which every button is disabled and 
  * a status message is given wether the user won or not. 
  */
@@ -204,5 +197,12 @@ const updateScore = (letterWasFound, amount, e, letter) =>{
         statusText.innerHTML = `You lose, the word was "${chosenWord}."`;
     }
 };
+
+/**
+ * Resets the window when clicked on
+ */
+ const resetGame = () =>{ 
+    window.location.reload();
+}
 
 game();
