@@ -1,126 +1,118 @@
-/*
-List of classes and id´s that probably won´t be used:
-- inputbox
-*/
-
 body{
     background-color: #ffffff;
-    background-color: #13F6E9;
 }
 
 #container{
     width: 100%;
     height: 100%;
+    float: left;
     margin: auto;
-    float:left;
-    background-color: #13F6E9;
 }
-
 
 #title_box{
     width: 1400px;
     height: 50px;
-    float:left;
+    float: left;
 }
 
 #alphabet_box{
     width: 800px;
     height: 135px;
     float: left;
-    margin-left: 330px;
     margin-top: 30px;
+    margin-left: 330px;
 }
 
 #information_box{
     width: 30%;
     height: 260px;
     float: left;
-    margin-top: 40px;
 }
 
 #hangman_box{
-    width: 69%;
+    width: 39%;
     height: 260px;
     float: left;
-    margin-top: 40px;
 }
 
 #hang_1{
     width: 10px;
     height: 240px;
-    margin-left:200px;
-    margin-top:20px;
-    float:left;
+    float: left;
+    margin-top: 20px;
+    margin-left: 200px;
 }
 
 #hang_2{
     width: 260px;
     height: 10px;
-    margin-top:20px;
-    float:left;
+    float: left;
+    margin-top: 20px;
 }
 
 #hang_3{
     width: 10px;
     height: 41px;
-    position: absolute;
-    left: 904px;
+    position: fixed;
     top: 283px;
+    left: 904px;
 }
 
 #hang_4{
     height: 40px;
     width: 40px;
+    position: absolute;
     border-radius: 50%;
-    position:absolute;
-    left: 889px;
     top: 323px;
+    left: 889px;
 }
 
 #hang_5{
     width: 40px;
     height: 90px;
-    position:absolute;
-    left: 890px;
+    position: absolute;
     top: 363px;
+    left: 890px;
 }
 
 #hang_6{
     width: 40px;
     height: 15px;
     position: absolute;
-    left: 850px;
     top: 363px;
+    left: 850px;
 }
 
 #hang_7{
     width: 40px;
     height: 15px;
-    position:absolute;
-    right: 470px;
+    position: absolute;
     top: 363px;
+    right: 470px;
 }
 
 #hang_8{
     width: 15px;
     height: 50px;
-    position:absolute;
-    right: 535px;
+    position: absolute;
     top: 450px;
+    right: 535px;
 }
 
 #hang_9{
     width: 15px;
     height: 50px;
-    position:absolute;
-    right: 510px;
+    position: absolute;
     top: 450px;
+    right: 510px;
 }
 
-#reset{
-    position: absolute;
-    top: 90%;
-    left: 45.5%;
+#used_box{
+    width: 23.5%;
+    height: 260px;
+    float: left;
+    margin-top: 40px;
+    margin-left: 64px;
 }
 
 #guess_box{
@@ -134,14 +126,24 @@ body{
 #button_box{
     width: 100%;
     height: 130px;
-    float:left;
+    float: left;
     margin-top: 10px;
+}
+
+#reset{
+    position: absolute;
+    top: 90%;
+    left: 45.5%;
+}
+
+.space{
+    margin-top: 40px;
 }
 
 .alphabet{
     width: 50px;
     height: 50px;
-    float:left;
+    float: left;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -154,13 +156,13 @@ body{
 
 .used{
     float: left;
-    margin: 4px;
+    margin: 3px;
 }
 
 .guess{
     width: 50px;
     height: 50px;
-    float:left;
+    float: left;
     margin-left: 10px;
     margin-top: 10px;
     border-color: #000000;
@@ -169,7 +171,6 @@ body{
 
 .center{
     text-align: center;
-    color: #000000;
 }
 
 .black{
@@ -178,7 +179,7 @@ body{
 
 .button{
     margin-top: 5px;
-    background-color: #338AFF; /* Green */
+    background-color: #338AFF; 
     border: none;
     color: #ffffff;
     padding: 15px 32px;

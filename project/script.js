@@ -6,7 +6,7 @@ let array = [];
 
 const alphabetBox = document.getElementById("alphabet_box");
 const guessBox = document.getElementById("guess_box");
-const informationBox = document.getElementById("information_box");
+const usedBox = document.getElementById("used_box");
 const attemptsText = document.getElementById("attempts_text");
 const statusText = document.getElementById("status_text");
 const clueText = document.getElementById("clue_text");
@@ -22,7 +22,7 @@ const getRandomCategory = () =>{
         [0, "Programming languages"],
         [1, "Colours"],
         [2, "Dishes"],
-        [3, "Football teams"]
+        [3, "Football teams"],
     ]);
     return clues.get(Math.floor(Math.random() * clues.size));
 }
@@ -34,8 +34,8 @@ const getRandomWord = (category) =>{
 
     let categories = new Map([
         ["Programming languages", ["PYTHON", "JAVA", "C", "CSS", "HTML"]],
-        ["Colours", ["RED", "BLUE", "YELLOW", "GREEN", "VIOLET"]],
-        ["Dishes", ["PIZZA", "SPAGETTI", "HAMBURGER", "SAUSAGES"]],
+        ["Colours", ["RED", "BLUE", "YELLOW", "GREEN", "VIOLET", "TURQUOISE"]],
+        ["Dishes", ["PIZZA", "SPAGHETTI", "HAMBURGER", "SAUSAGES"]],
         ["Football teams", ["CHELSEA", "LIVERPOOL", "BARCELONA", "TOTTENHAM", "EVERTON"]]
     ]);
 
@@ -63,6 +63,7 @@ const chosenWord = getRandomWord(chosenCategory);
         btn.id = alphabet[i];
         btn.classList.add("alphabet");
         btn.textContent = alphabet[i];
+        btn.style.color = "white";
         buttons[i] = btn;
         alphabetBox.appendChild(btn);
     }
@@ -87,7 +88,7 @@ const game = () =>{
  */
 const showHint = () =>{
     clueButton.replaceWith(clueText);
-    clueText.innerHTML = `The clue is "${chosenCategory}"`;
+    clueText.innerHTML = `Clue: "${chosenCategory}"`;
 };
 
 /**
@@ -99,7 +100,7 @@ const usedLetters = (letter, color) =>{
     used.innerHTML = letter;
     used.style.color = color;
     used.classList.add("used");
-    informationBox.appendChild(used);
+    usedBox.appendChild(used);
 };
 
 /**
@@ -196,10 +197,11 @@ const updateScore = (letterWasFound, amount, e, letter) =>{
         buttons[i].disabled = true;
     }
     if(status == "won"){
-        statusText.innerHTML = "You win!!";
+        statusText.innerHTML = "You win!";
     }
     else{
-        statusText.innerHTML = `You lose, the word was "${chosenWord}"`;
+        showHint();
+        statusText.innerHTML = `You lose, the word was "${chosenWord}."`;
     }
 };
 
