@@ -5,10 +5,13 @@ let buttons = [];
 let array = [];
 
 const alphabetBox = document.getElementById("alphabet_box");
+const guessBox = document.getElementById("guess_box");
+const informationBox = document.getElementById("information_box");
 const attemptsText = document.getElementById("attempts_text");
 const statusText = document.getElementById("status_text");
-const guessBox = document.getElementById("guess_box");
+const clueText = document.getElementById("clue_text");
 const resetButton = document.getElementById("reset");
+const clueButton = document.getElementById("clue");
 
 /**
  * Returns a random category which is then used to choose the words suited for the 
@@ -44,25 +47,16 @@ const chosenCategory = getRandomCategory();
 const chosenWord = getRandomWord(chosenCategory);
 
 /**
- * When the window is shown to the user, we want a random word to be chosen in order to 
- * setup the game. Also set the amount of underscores to display to the user, which is based 
- * on the length of the word. 
+ * Resets the window when clicked on
  */
-const game = () =>{
-    createButtons();
-    addUnderscores(chosenWord);
-    buttons.forEach(button => button.addEventListener('click', guessWord));
-    resetButton.addEventListener('click', resetGame);
-};
-
-const resetGame = () =>{ 
+ const resetGame = () =>{ 
     window.location.reload();
 }
 
 /**
  * Creates the buttons with letters from the alphabet which is used for the game.
  */
-const createButtons = () =>{
+ const createButtons = () =>{
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     for(var i = 0; i < alphabet.length; i++){
         var btn = document.createElement("button");
@@ -72,6 +66,51 @@ const createButtons = () =>{
         buttons[i] = btn;
         alphabetBox.appendChild(btn);
     }
+};
+
+/**
+ * When the window is shown to the user, we want a random word to be chosen in order to 
+ * setup the game. Also set the amount of underscores to display to the user, which is based 
+ * on the length of the word. 
+ */
+const game = () =>{
+    resetButton.style.display = "none";
+    createButtons();
+    addUnderscores(chosenWord);
+    buttons.forEach(button => button.addEventListener('click', guessWord));
+    resetButton.addEventListener('click', resetGame);
+    clueButton.addEventListener('click', showHint);
+};
+
+/**
+ * If the "Show clue" button is clicked then a clue will be displayed
+ */
+const showHint = () =>{
+    clueButton.replaceWith(clueText);
+    clueText.innerHTML = `The clue is "${chosenCategory}"`;
+};
+
+/**
+ * Letters which are used, will be displayed along with a "red" or "green" color 
+ * based if the letter is within the word or not. 
+ */
+const usedLetters = (letter, color) =>{
+    used = document.createElement("h1");
+    used.innerHTML = letter;
+    used.style.color = color;
+    used.classList.add("used");
+    informationBox.appendChild(used);
+};
+
+/**
+ * If the user clicked on a letter which was in the word, then the letter will be displayed for 
+ * the user. 
+ */
+ const displayLetter = (index, letter) =>{
+    var text = document.createElement("h1");
+    text.classList.add("center");
+    text.textContent = letter;
+    array[index].appendChild(text);
 };
 
 /**
@@ -93,7 +132,6 @@ const createButtons = () =>{
  */
  const guessWord = (e) =>{
     letter = e.target.id.toUpperCase(); 
-    e.target.disabled = true;
     isFound = false;
     let amount = 0;
     for(var i = 0; i < chosenWord.length; i++){
@@ -103,7 +141,7 @@ const createButtons = () =>{
             amount += 1;
         }
     }
-    updateScore(isFound, amount);
+    updateScore(isFound, amount, e, letter);
 };
 
 
@@ -113,7 +151,7 @@ const createButtons = () =>{
 const updateAttempts = () =>{
     attempts -= 1;
     attemptsText.innerHTML = `Attempts left: ${attempts} `;
-}
+};
 
 /**
  * Checks if the user has won or not based on the amount of letters which the user 
@@ -124,30 +162,27 @@ const updateAttempts = () =>{
         console.log(guessedCorrect);
         gameOver("won");
     }
-    else if(guessedWrong == 9 || attempts == 0){
+    else if(guessedWrong == 9){
         gameOver("lost");
     }
-}
-
-const displayHangman = () =>{
-    document.getElementById(`hang_${guessedWrong}`).classList.add("black");
-}
+};
 
 /**
  * If the letter was indeed found within the word, then the user has guessed correct. Otherwise
  * the user has guessed wrong. At the end, we must ensure wether the user have won or not. 
  */
-const updateScore = (letterWasFound, amount) =>{
+const updateScore = (letterWasFound, amount, e, letter) =>{
     if(letterWasFound == true){
         guessedCorrect += amount;
-        console.log("Right" + guessedCorrect);
-        console.log("Wrong" + guessedWrong);
+        usedLetters(letter, "green");
     }
     else{
         guessedWrong += 1;
-        displayHangman();
+        document.getElementById(`hang_${guessedWrong}`).classList.add("black");
         updateAttempts();
+        usedLetters(letter, "red");
     }
+    e.target.disabled = true;
     checkIfWon();
 }
 
@@ -156,6 +191,7 @@ const updateScore = (letterWasFound, amount) =>{
  * a status message is given wether the user won or not. 
  */
  const gameOver = (status) =>{
+    resetButton.style.display = "block";
     for (var i = 0; i < buttons.length; i++){
         buttons[i].disabled = true;
     }
@@ -165,19 +201,6 @@ const updateScore = (letterWasFound, amount) =>{
     else{
         statusText.innerHTML = `You lose, the word was "${chosenWord}"`;
     }
-}
-
-/**
- * If the user clicked on a letter which was in the word, then the letter will be displayed for 
- * the user. 
- */
-const displayLetter = (index, letter) =>{
-    var text = document.createElement("h1");
-    text.classList.add("center");
-    text.textContent = letter;
-    array[index].appendChild(text);
-    console.log(array[index])
 };
-
 
 game();

@@ -8,27 +8,31 @@
 </head>
 <body>
     <main>
-        <div class = "container">
+        <div id = "container">
 
-            <div id = "title_box" class = "border">
+            <div id = "title_box">
                 <h1 class = "center">HANGMAN</h1>
             </div>
 
-            <div class = "button_box border">
-                
+            <div id = "alphabet_box"></div>
+
+            <div id = "information_box">
+
+                <h1 id = "attempts_text" class = "center">Attempts left: 9</h1>
+
                 <div class = "center">
-                <button id = "hint" class = "button">Show hint</button>
+                    <button id = "clue" class = "button">Show clue</button>
+                    <h1 id = "clue_text" class = "center"></h1>
                 </div>
 
-            </div>
+                <h2 class = "center">Used letters</h2>
 
-            <div id = "attempts_box" class = "border">
-
-                <h2 id = "attempts_text" class = "center">Attempts left: 9</h2>
+                <h2 class = "used"></h2>
+                
                 
             </div>
 
-            <div class = "share_box border">
+            <div id = "hangman_box">
 
                 <div id = "hangman">
                     
@@ -63,22 +67,12 @@
                 
             </div>
 
-            <div id = "alphabet_box" class = "share_box border">
+            <div id = "guess_box"></div>
 
-                
-            
+            <div id = "button_box">
+                <h1 id = "status_text" class = "center"></h1>
+                <button id = "reset" class = "button">Play again</button>
             </div>
-
-            <div id = "guess_box" class = "border"></div>
-
-            <div class = "button_box border">
-                <div class = "center">
-                    <h3 id = "status_text" >Game Over</h3>
-                    <button id = "reset" class = "button">Reset Game</button>
-                </div>
-
-            </div>
-
 
         </div>
     </main>
