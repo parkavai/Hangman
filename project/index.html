@@ -8,199 +8,65 @@
 </head>
 <body>
     <main>
-        <div class = "container">
-
-            <div id = "title_box" class = "border">
+        <div id = "container">
+            <div id = "title_box">
                 <h1 class = "center">HANGMAN</h1>
             </div>
 
-            <div class = "button_box border">
-                
+            <div id = "alphabet_box"></div>
+
+            <div id = "information_box" class = "space">
+                <h1 id = "attempts_text" class = "center">Attempts left: 9</h1>
                 <div class = "center">
-                <button id = "hint" class = "button">Show hint</button>
+                    <button id = "clue" class = "button">Show clue</button>
+                    <h2 id = "clue_text" class = "center"></h2>
                 </div>
-
             </div>
 
-            <div id = "attempts_box" class = "border">
-
-                <div class = "attempts">
-                    <h2 class = "center">Attempts left</h2>
-                </div>
-                
-            </div>
-
-            <div class = "share_box border">
-
+            <div id = "hangman_box" class = "space">
                 <div id = "hangman">
+                    <!-- Vertical line -->
+                    <div id = "hang_1"></div>
 
-                    <div id = "line_vertical"></div>
+                    <!-- Horizontal line -->
+                    <div id = "hang_2"></div>
 
-                    <div id = "line_horisontal"></div>
+                    <!-- Rope -->
+                    <div id = "hang_3"></div>
 
-                    <div id = "line_rope"></div>
+                    <!-- Head -->
+                    <div id = "hang_4"></div>
 
-                    <div id = "hang_head"></div>
+                    <!-- Upper body -->
+                    <div id = "hang_5"></div>
 
-                    <div id = "hang_upper"></div>
+                    <!-- Left arm -->
+                    <div id = "hang_6"></div>
 
-                    <div id = "hang_left_arm"></div>
+                    <!-- Right arm -->
+                    <div id = "hang_7"></div>
 
-                    <div id = "hang_right_arm"></div>
+                    <!-- Left leg -->
+                    <div id = "hang_8"></div>
 
-                    <div id = "hang_left_leg"></div>
-
-                    <div id = "hang_right_leg"></div>
-
+                    <!-- Right leg -->
+                    <div id = "hang_9"></div>
                 </div>
-                
             </div>
 
-            <div class = "share_box border">
-
-                <div class = "row" onclick = "letterClick()">
-                    <div class = "alphabet">
-                        <h1 class = "center">A</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">B</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">C</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">D</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">E</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">F</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">G</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">H</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">I</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">J</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">K</h1>
-                    </div>
-            
-                </div>
-
-                <div class = "row">
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">L</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">M</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">N</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">O</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">P</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">Q</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">R</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">S</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">T</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">U</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">V</h1>
-                    </div>
-                </div>
-            
-                <div class = "row">
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">W</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">X</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">Y</h1>
-                    </div>
-            
-                    <div class = "alphabet" onclick = "letterClick()">
-                        <h1 class = "center">Z</h1>
-                    </div>
-                </div>
-            
+            <div id = "used_box" class = "space">
+                <h2 class = "center">Used letters</h2>
+                <h2 class = "used"></h2>
             </div>
 
-            <div id = "answer_box" class = "border">
+            <div id = "guess_box"></div>
 
-                <div class = "answer">
-
-                </div>
-
-                <div class = "answer">
-
-                </div>
-
-                <div class = "answer">
-
-                </div>
-
-                <div class = "answer">
-
-                </div>
-
+            <div id = "button_box">
+                <h1 id = "status_text" class = "center"></h1>
+                <button id = "reset" class = "button">Play again</button>
             </div>
-
-            <div class = "button_box border">
-
-                <div class = "center">
-                    <button id = "reset" class = "button">Reset Game</button>
-                </div>
-
-            </div>
-
-
         </div>
     </main>
 </body>
+<script type="text/javascript" src="script.js"></script>
 </html>
