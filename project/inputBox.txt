@@ -1,4 +1,0 @@
-<div id = "inputBox" class = "border">
-    <label for = "uInput">Enter a Letter:</label>
-    <input type = "text" id = "userInput" name = "uInput">
-</div>
